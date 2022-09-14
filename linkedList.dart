@@ -1,3 +1,4 @@
+/// new instance of Linked List
 class LinkedList {
   Element? head = null;
 
@@ -21,7 +22,7 @@ class LinkedList {
 
   /// add element to the beginning
   /// of the linked list
-  Element prepend(dynamic data) {
+  void prepend(dynamic data) {
     // Create new Element instance
     final newElement = Element(data, null);
     if (head != null) {
@@ -35,7 +36,6 @@ class LinkedList {
       // set the new element as the head
       head = newElement;
     }
-    return newElement;
   }
 
   /// get all the elements in the linked list
@@ -103,13 +103,25 @@ class LinkedList {
     }
   }
 
-  /// Remove multiple elements
+  /// Remove multiple elements from linkedlist
   void removeAll(List data) {
     int index = 0;
     while (index < data.length) {
       this.remove(data[index]);
       index++;
     }
+  }
+
+  void length() {
+    int length = 0;
+    var currentElement = head;
+
+    while (currentElement != null) {
+      length++;
+      currentElement = currentElement.next;
+    }
+
+    print(length);
   }
 }
 
